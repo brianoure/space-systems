@@ -1,5 +1,5 @@
 # Space-systems
-My experience  thus far as a Space systems engineer;
+My experience  thus far as a Space systems engineer working;
 - Satellites
 - Drones
 - Terrestrial & Space weather stations
