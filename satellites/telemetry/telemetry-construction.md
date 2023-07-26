@@ -1,10 +1,10 @@
 # Model satellite downlink telemetry frame construction
-All the types are unsigned:  
+All the types are unsigned  
 - short preamble1 (2 bytes)
 - short preamble2 (2 bytes)
 - short preamble3 (2 bytes)
 - short preamble4 (2 bytes)
-- int solar_panel_voltage
+- int solar_panel_voltage 
 - int battery_charge
 - int battery_temperature
 - short position_latitude1 (2 bytes)
