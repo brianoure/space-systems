@@ -1,34 +1,34 @@
 # Model satellite telemetry frame construction
-solar_panel is voltage recorded at the panel
+solar_panel_voltage is 'int' type
 
-battery_charge is the battery percentage charge available
+battery_charge is 'int' type
 
-battery_temperature 
+battery_temperature is 'int' type
 
-position_latitude 
+position_latitude is 'long' type
 
-position_longitude 
+position_longitude is 'long' type
 
-position_altitude 
+position_altitude is 'unsigned int' type
 
-system_time 
+system_time is 'long' type
 
-payload_status 
+payload_status is 'char' type
 
-payload_temperature
+payload_temperature is 'int' type
 
-obc_status 
+obc_status is 'char' type
 
-obc_temperature
+obc_temperature is 'int' type
 
-structure_status 
+structure_status is 'char' type
 
-structure_temperature
+structure_temperature is 'int' type
 
-eps_status  
+eps_status  is 'char' type
 
-eps_temperature
+eps_temperature is 'int' type
 
-attitude_determination_status
+attitude_determination_status is 'char' type
 
-communication_status.
+communication_status is 'char' type
