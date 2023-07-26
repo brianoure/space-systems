@@ -1,24 +1,24 @@
 # Model satellite downlink telemetry frame construction
-- preamble is 'long' type
-- solar_panel_voltage is 'int' type
-- battery_charge is 'int' type
+- preamble is 'unsigned long' type
+- solar_panel_voltage is 'unsigned int' type
+- battery_charge is 'unsigned int' type
 - battery_temperature is 'int' type
-- position_latitude is 'long' type
-- position_longitude is 'long' type
+- position_latitude is 'unsigned long' type
+- position_longitude is 'unsigned long' type
 - position_altitude is 'unsigned int' type
-- system_time is 'long' type
-- payload_status is 'char' type
+- system_time is 'unsigned long' type
+- payload_status is 'unsigned char' type
 - payload_temperature is 'int' type
-- obc_status is 'char' type
-- int memory_remaining_percentage is 'int' type
-- last_uplink_command is 'long' type
-- last_uplink_command_parameter1 is 'long' type
-- last_uplink_command_parameter2 is 'long' type
+- obc_status is 'unsigned char' type
+- int memory_remaining_percentage is 'unsigned int' type
+- last_uplink_command is 'unsigned long' type
+- last_uplink_command_parameter1 is 'unsigned long' type
+- last_uplink_command_parameter2 is 'unsigned long' type
 - obc_temperature is 'int' type
-- structure_status is 'char' type
+- structure_status is 'unsigned char' type
 - structure_temperature is 'int' type
-- eps_status  is 'char' type
+- eps_status  is 'unsigned char' type
 - eps_temperature is 'int' type
-- attitude_determination_status is 'char' type
-- communication_status is 'char' type
-- redundancy_check is 'int' type
+- attitude_determination_status is 'unsigned char' type
+- communication_status is 'unsigned char' type
+- redundancy_check is 'unsigned int' type
