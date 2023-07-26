@@ -1,5 +1,5 @@
 # Model satellite downlink telemetry frame construction
-All the types are unsigned  
+All the types are unsigned, therefore take caution when passing possibly signed values such as temperatures (conversion to unsigned is necessary)
 - short preamble1 (2 bytes)
 - short preamble2 (2 bytes)
 - short preamble3 (2 bytes)
