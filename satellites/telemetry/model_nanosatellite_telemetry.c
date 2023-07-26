@@ -2,7 +2,10 @@
 * Code to be executed in the nanosatellite
 * Should work in all 32-bit machines - avoided using 'long' type
 */
-int* generate_nanosatellite_telemetry_frame(
+(short value){}
+(int value){}
+(char value){}
+int* generate_nanosatellite_telemetry_binary_frame(
 unsigned short preamble1,
 unsigned short preamble2,
 unsigned short preamble3,
@@ -36,48 +39,42 @@ unsigned char attitude_determination_status,
 unsigned char redundancy_check
 ) {//get_nanosatellite_telemetry
 
-int result_pointer[];
-short_size=(int) sizeof(short)
-int_size  =(int) sizeof(int)
-char_size =(int) sizeof(char)
+short_size=(int) sizeof(short);
+int_size  =(int) sizeof(int);
+char_size =(int) sizeof(char);
+frame_size = (14*short_size)+(8*int_size)+(9*char_size);
+int result_pointer[frame_size];
 
-//short: preamble1 preamble2 preamble3 preamble4
-for(int x=0;x<short_size;x++){
-}/* short loop */
-for(int x=0;x<short_size;x++){
-}/* short loop */
-for(int x=0;x<short_size;x++){
-}/* short loop */
-for(int x=0;x<short_size;x++){
-}/* short loop */
+//short: preamble1, preamble2, preamble3, preamble4
+for(int x=0             ;x<short_size    ;x++){  result_pointer[x] = (preamble1 & (1<<x)); }/* short loop */
+for(int x=short_size    ;x<(2*short_size);x++){  result_pointer[x] = (preamble2 & (1<<x)); }/* short loop */
+for(int x=(2*short_size);x<(3*short_size);x++){  result_pointer[x] = (preamble3 & (1<<x)); }/* short loop */
+for(int x=(3*short_size);x<(4*short_size);x++){  result_pointer[x] = (preamble4 & (1<<x)); }/* short loop */
 
 //int: solar_panel_voltage, battery_charge, battery_temperature
-for(int x=0;x<int_size;x++){}/* int loop */
-for(int x=0;x<int_size;x++){}/* int loop */
-for(int x=0;x<int_size;x++){}/* int loop */
+for(int x=(4*short_size)               ;x<((4*short_size)+int_size)    ;x++){ result_pointer[x] = ( solar_panel_voltage & (1<<x)); }/* int loop */
+for(int x=((4*short_size)+int_size)    ;x<((4*short_size)+(2*int_size));x++){ result_pointer[x] = ( battery_charge & (1<<x)); }/* int loop */
+for(int x=((4*short_size)+(2*int_size));x<((4*short_size)+(3*int_size));x++){ result_pointer[x] = ( battery_temperature & (1<<x)); }/* int loop */
 
-//short: postion_latitude1, postion_latitude2, postion_longitude1, postion_longitude2
-for(int x=0;x<short_size;x++){
-}/* short loop */
-for(int x=0;x<short_size;x++){
-}/* short loop */
-for(int x=0;x<short_size;x++){
-}/* short loop */
-for(int x=0;x<short_size;x++){
-}/* short loop */
+//short: position_latitude1, position_latitude2, position_longitude1, 
+for(int x=((4*short_size)+(3*int_size))                 ;x<(((4*short_size)+(3*int_size))+short_size)    ;x++){ result_pointer[x] = ( position_latitude1 & (1<<x)); }/* short loop */
+for(int x=(((4*short_size)+(3*int_size))+short_size)    ;x<(((4*short_size)+(3*int_size))+(2*short_size));x++){ result_pointer[x] = ( position_latitude2 & (1<<x)); }/* short loop */
+for(int x=(((4*short_size)+(3*int_size))+(2*short_size));x<(((4*short_size)+(3*int_size))+(3*short_size));x++){ result_pointer[x] = ( position_longitude1 & (1<<x)); }/* short loop */
+for(int x=(((4*short_size)+(3*int_size))+(3*short_size));x<(((4*short_size)+(3*int_size))+(4*short_size));x++){ result_pointer[x] = ( position_longitude2 & (1<<x)); }/* short loop */
 
 //int: position_altitude1, position_altitude2, position_altitude3
-for(int x=0;x<char_size;x++){}/* char loop */
-for(int x=0;x<char_size;x++){}/* char loop */
-for(int x=0;x<char_size;x++){}/* char loop */
+int marker4=(((4*short_size)+(3*int_size))+(4*short_size));
+for(int x=marker4                ;x<(marker4+char_size)    ;x++){ result_pointer[x] = ( position_altitude1 & (1<<x)); }/* char loop */
+for(int x=(marker4+char_size)    ;x<(marker4+(2*char_size));x++){ result_pointer[x] = ( position_altitude2 & (1<<x)); }/* char loop */
+for(int x=(marker4+(2*char_size));x<(marker4+(3*char_size));x++){ result_pointer[x] = ( position_altitude3 & (1<<x)); }/* char loop */
 
 //short: system_time1, system_time2
-for(int x=0;x<short_size;x++){
-}/* short loop */
-for(int x=0;x<short_size;x++){
-}/* short loop */
+int marker5=(marker4+(3*char_size));
+for(int x=marker5             ;x<(marker5+short_size)   ;x++){ result_pointer[x] = ( system_time1e3 & (1<<x)); }/* short loop */
+for(int x=(marker5+short_size);x<(marker5+(2*short_size);x++){ result_pointer[x] = ( position_altitude3 & (1<<x)); }/* short loop */
 
 //char: payload_status
+int marker6=;
 for(int x=0;x<char_size;x++){}/* char loop */
 
 //int: payload_temperature
