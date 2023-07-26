@@ -1,24 +1,33 @@
 # Model satellite downlink telemetry frame construction
-- preamble is 'unsigned long' type
-- solar_panel_voltage is 'unsigned int' type
-- battery_charge is 'unsigned int' type
-- battery_temperature is 'int' type
-- position_latitude is 'unsigned long' type
-- position_longitude is 'unsigned long' type
-- position_altitude is 'unsigned int' type
-- system_time is 'unsigned long' type
-- payload_status is 'unsigned char' type
-- payload_temperature is 'int' type
-- obc_status is 'unsigned char' type
-- int memory_remaining_percentage is 'unsigned int' type
-- last_uplink_command is 'unsigned long' type
-- last_uplink_command_parameter1 is 'unsigned long' type
-- last_uplink_command_parameter2 is 'unsigned long' type
-- obc_temperature is 'int' type
-- structure_status is 'unsigned char' type
-- structure_temperature is 'int' type
-- eps_status  is 'unsigned char' type
-- eps_temperature is 'int' type
-- attitude_determination_status is 'unsigned char' type
-- communication_status is 'unsigned char' type
-- redundancy_check is 'unsigned int' type
+All the types are unsigned:  
+- short preamble1 (2 bytes)
+- short preamble2 (2 bytes)
+- short preamble3 (2 bytes)
+- short preamble4 (2 bytes)
+- int solar_panel_voltage
+- int battery_charge
+- int battery_temperature
+- short position_latitude1 (2 bytes)
+- short position_latitude2 (2 bytes)
+- short position_longitude1 (2 bytes)
+- short position_longitude2 (2 bytes)
+- char position_altitude1 (1 byte)
+- char position_altitude2 (1 byte)
+- char position_altitude3 (1 byte)
+- short system_time1 (2 bytes)
+- short system_time2 (2 bytes)
+- char payload_status (1 byte)
+- int payload_temperature
+- char obc_status (1 byte)
+- int memory_remaining_percentage
+- short last_uplink_command1 (2 bytes)
+- short last_uplink_command2 (2 bytes)
+- short last_uplink_command_parameters1 (2 bytes)
+- short last_uplink_command_parameters2 (2 bytes)
+- int obc_temperature
+- char structure_status (1 byte)
+- int structure_temperature
+- char eps_status (1 byte)
+- int eps_temperature
+- char attitude_determination_status (1 byte)
+- char redundancy_check (1 byte)
