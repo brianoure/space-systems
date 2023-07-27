@@ -2,7 +2,7 @@
 This is just a model telemetry frame. Complex satellites require significantly larger frames with more complex data <br>
 (I'll include an advanced example in this same directory at a later time)
 
-The frame starting with the MSB, is arranged as follows:
+The frame, starting with the MSB, is arranged as follows:
 - unsigned long preamble
 - unsigned long position_latitude
 - unsigned long position_longitude
