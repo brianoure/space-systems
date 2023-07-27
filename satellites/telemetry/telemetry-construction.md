@@ -1,33 +1,17 @@
 # Model satellite downlink telemetry frame construction
-All the types are unsigned, therefore take caution when passing possibly signed values such as temperatures (conversion to unsigned is necessary)
-- short preamble1 (2 bytes)
-- short preamble2 (2 bytes)
-- short preamble3 (2 bytes)
-- short preamble4 (2 bytes)
-- int solar_panel_voltage 
-- int battery_charge
-- int battery_temperature
-- short position_latitude1 (2 bytes)
-- short position_latitude2 (2 bytes)
-- short position_longitude1 (2 bytes)
-- short position_longitude2 (2 bytes)
-- char position_altitude1 (1 byte)
-- char position_altitude2 (1 byte)
-- char position_altitude3 (1 byte)
-- short system_time1 (2 bytes)
-- short system_time2 (2 bytes)
-- char payload_status (1 byte)
-- int payload_temperature
-- char obc_status (1 byte)
-- int memory_remaining_percentage
-- short last_uplink_command1 (2 bytes)
-- short last_uplink_command2 (2 bytes)
-- short last_uplink_command_parameters1 (2 bytes)
-- short last_uplink_command_parameters2 (2 bytes)
-- int obc_temperature
-- char structure_status (1 byte)
-- int structure_temperature
-- char eps_status (1 byte)
-- int eps_temperature
-- char attitude_determination_status (1 byte)
-- char redundancy_check (1 byte)
+This is just a model telemetry frame. Complex satellites require significantly larger frames with more complex data(I'll include an advanced example in this same directory at a later time)
+The frame starting with the MSB, is arranged as follows:
+- unsigned long preamble
+- unsigned long position_latitude
+- unsigned long position_longitude
+- unsigned long position_altitude
+- unsigned long system_time
+- unsigned long structure_status
+- unsigned long attitude_determination_status 
+- unsigned long payload_status
+- unsigned long obc_status
+- unsigned long eps_status
+- unsigned long communication_status
+- unsigned long last_uplink_command
+- unsigned long last_uplink_command_parameters
+- unsigned char redundancy_check
