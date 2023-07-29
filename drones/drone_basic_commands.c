@@ -1,21 +1,24 @@
 /*
 *main program for controlling a quadcopter
 */
-typedef LEFT 10;
-typedef RIGHT 33;
-typedef LOWER 45;
-typedef HOVER 27;
-typedef RAISE 88;
-typedef FORWARD 63;
-typedef BACK 56;
-typedef SPIN 77;
-typedef TAKEOFF 28;
-typedef LAND 39;
+int LEFT  =10;
+int RIGHT =33;
+int LOWER =45;
+int HOVER =27;
+int RAISE =88;
+int FORWARD =63;
+int BACK =56;
+int SPIN =77;
+int TAKEOFF =28;
+int LAND =39;
 
-void north_rotor(long rpm);
-void west_rotor(long rpm);
-void east_rotor(long rpm);
-void south_rotor(long rpm);
+struct motor{ long rpm; int run_duration; };
+
+
+void north_rotor(struct motor rr);
+void west_rotor(struct motor rr);
+void east_rotor(struct motor rr);
+void south_rotor(struct motor rr);
 
 int run_program=1;
 
@@ -33,36 +36,36 @@ if(action==LAND){}//if
 
 int main(){//main
 while(run_program){//while
-if(left_key_press_speed1)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(left_key_press_speed2)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(left_key_press_speed3)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(left_key_press_speed4)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(right_key_press_speed1)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(right_key_press_speed2)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(right_key_press_speed3)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(right_key_press_speed4)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(lower_key_press_speed1)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(lower_key_press_speed2)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(lower_key_press_speed3)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(lower_key_press_speed4)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(raise_key_press_speed1)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(raise_key_press_speed2)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(raise_key_press_speed3)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(raise_key_press_speed4)  {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(forward_key_press_speed1){north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(forward_key_press_speed2){north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(forward_key_press_speed3){north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(forward_key_press_speed4){north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(back_key_press_speed1)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(back_key_press_speed2)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(back_key_press_speed3)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(back_key_press_speed4)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(spin_key_press_speed1)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(spin_key_press_speed2)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(spin_key_press_speed3)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(spin_key_press_speed4)   {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(takeoff_key_press)       {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
-if(land_key_press)          {north_rotor(long rpm); west_rotor(long rpm); east_rotor(long rpm); south_rotor(long rpm);}
+if(left_key_press_speed1)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(left_key_press_speed2)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(left_key_press_speed3)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(left_key_press_speed4)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(right_key_press_speed1)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(right_key_press_speed2)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(right_key_press_speed3)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(right_key_press_speed4)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(lower_key_press_speed1)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(lower_key_press_speed2)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(lower_key_press_speed3)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(lower_key_press_speed4)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(raise_key_press_speed1)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(raise_key_press_speed2)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(raise_key_press_speed3)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(raise_key_press_speed4)  {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(forward_key_press_speed1){north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(forward_key_press_speed2){north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(forward_key_press_speed3){north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(forward_key_press_speed4){north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(back_key_press_speed1)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(back_key_press_speed2)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(back_key_press_speed3)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(back_key_press_speed4)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(spin_key_press_speed1)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(spin_key_press_speed2)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(spin_key_press_speed3)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(spin_key_press_speed4)   {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(takeoff_key_press)       {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
+if(land_key_press)          {north_rotor(struct motor rr); west_rotor(struct motor rr); east_rotor(struct motor rr); south_rotor(struct motor rr);}
 if(exit_program_key_press){}
 }//while
 }//main
